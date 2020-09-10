@@ -28,6 +28,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.4",
     "enzyme-to-json": "^3.5.0",
+    "express": "^4.17.1",
     "jest": "^26.4.2",
     "live-server": "^1.2.1",
     "mini-css-extract-plugin": "^0.11.1",
@@ -46,7 +47,9 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
-    "serve": "live-server public"
+    "serve": "live-server public",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build:prod"
   },
   "keywords": [],
   "author": "",
