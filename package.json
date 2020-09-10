@@ -47,7 +47,7 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
-    "serve": "live-server public",
+    "serve": "live-server public/",
     "start": "node server/server.js",
     "heroku-postbuild": "npm run build:prod"
   },
