@@ -1,5 +1,5 @@
 import React from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ExpenseForm from "../ExpenseForm";
 import { editExpense, removeExpense } from "../../redux/actions/expenses";
 
@@ -23,7 +23,7 @@ const EditExpense = (props) => {
           props.history.push("/");
         }}
       />
-      <button onClick={() => deleteExpense(expense.id)}>Remove</button>
+      <button onClick={() => deleteExpense(editedExpense.id)}>Remove</button>
     </div>
   );
 };
