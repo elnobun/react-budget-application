@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EditList items 1`] = `
+<div>
+  <Link
+    to="edit/1"
+  >
+    <h3>
+      Rum
+    </h3>
+  </Link>
+  <div>
+    <p>
+      Amount: 
+      £1.95
+    </p>
+    <p>
+      Created: 
+      January 1st, 1970
+    </p>
+  </div>
+</div>
+`;
