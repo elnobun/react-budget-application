@@ -5,9 +5,8 @@ import numeral from "numeral";
 import localeData from "../locales/en-gb";
 
 numeral.register("locale", "en-gb", localeData);
-numeral.locale("en-gb");
-
 const ExpenseListItem = ({ id, description, amount, createdAt }) => {
+  numeral.locale("en-gb");
   return (
     <div>
       <Link to={`edit/${id}`}>
