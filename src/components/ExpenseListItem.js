@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
-import localeData from "../locales/en-gb";
+import "numeral/locales/en-gb";
 
-numeral.register("locale", "en-gb", localeData);
 const ExpenseListItem = ({ id, description, amount, createdAt }) => {
   numeral.locale("en-gb");
   return (
