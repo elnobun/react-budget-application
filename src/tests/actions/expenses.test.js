@@ -6,7 +6,7 @@ import {
 
 // Test removeExpense action
 test("should remove expense object", () => {
-  const action = removeExpense({ id: "123" });
+  const action = removeExpense("123");
   expect(action).toEqual({ type: "REMOVE_EXPENSE", id: "123" });
 });
 
