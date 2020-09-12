@@ -3,5 +3,7 @@
 node_modules/
 playground/
 public/dist/
+.env.test
+.env.development
 
 

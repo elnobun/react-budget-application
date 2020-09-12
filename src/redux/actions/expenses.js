@@ -1,16 +1,30 @@
 import { v4 as uuid } from "uuid";
+import database from "../../firebase/firebase";
 
 // ADD EXPENSE
-export const addExpense = (payload) => ({
+export const addExpense = (expense) => ({
   type: "ADD_EXPENSE",
-  expense: {
-    id: uuid(),
-    description: payload.description || "",
-    note: payload.note || "",
-    amount: payload.amount || 0,
-    createdAt: payload.createdAt || 0,
-  },
+  expense,
 });
+
+export const startAddExpense = (expenseData = {}) => {
+  return (dispatch) => {
+    const expense = {
+      description: expenseData.description || "",
+      note: expenseData.note || "",
+      amount: expenseData.amount || 0,
+      createdAt: expenseData.createdAt || 0,
+    };
+    return database.add(expense).then((doc) => {
+      dispatch(
+        addExpense({
+          id: doc.id,
+          ...expense,
+        })
+      );
+    });
+  };
+};
 
 // REMOVE EXPENSE
 export const removeExpense = (id = {}) => ({
