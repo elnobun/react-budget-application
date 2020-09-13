@@ -1,11 +1,9 @@
-# Budget App
-
-## Description:
+# Budget Manager Application
 
 A web application with Authentication and CRUD functionalities, 
 to manage budget expenses.
 
-# Features:
+## Features:
 - Firestore Database Storage
 - Firestore Authentication
 
@@ -20,13 +18,15 @@ to manage budget expenses.
 - Nodejs sever implementation
 - Heroku deployment
 
-# Local Deplyoment
-npm install
-npm run dev-start
+## Install dependencies
+`npm install`
 
-# To run on Node server
-npm start
+## Run Locally:
+`npm run dev-start`
 
-# Production Deployment
+## Run on Node server:
+`npm start`
+
+## Production Deployment:
 https://react-budget-manager-app.herokuapp.com/
 
