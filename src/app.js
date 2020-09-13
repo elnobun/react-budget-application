@@ -12,11 +12,9 @@ import { login, logout } from "./redux/actions/auth";
 
 // Create application root
 const rootApp = (
-  <React.StrictMode>
-    <Provider store={store}>
-      <AppRouter />
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
 );
 
 // Set variable to chek if app has redered
