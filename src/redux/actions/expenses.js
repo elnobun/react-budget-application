@@ -10,7 +10,7 @@ export const startAddExpense = (expenseData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const expense = {
-      uid: uid,
+      user_id: uid,
       description: expenseData.description || "",
       note: expenseData.note || "",
       amount: expenseData.amount || 0,
