@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import { database } from "../../firebase/firebase";
 
 // ADD EXPENSE
@@ -8,17 +7,19 @@ export const addExpense = (expense) => ({
 });
 
 export const startAddExpense = (expenseData = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     const expense = {
+      uid: uid,
       description: expenseData.description || "",
       note: expenseData.note || "",
       amount: expenseData.amount || 0,
       createdAt: expenseData.createdAt || 0,
     };
-    return database.add(expense).then((doc) => {
+    return database.add(expense).then((ref) => {
       dispatch(
         addExpense({
-          id: doc.id,
+          id: ref.id,
           ...expense,
         })
       );
@@ -68,18 +69,22 @@ export const setExpenses = (expenses) => ({
 });
 
 export const startSetExpenses = () => {
-  return (dispatch) => {
-    return database.get().then((querySnapshot) => {
-      const expenses = [];
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database
+      .where("user_id", "==", uid)
+      .get()
+      .then((querySnapshot) => {
+        const expenses = [];
 
-      querySnapshot.forEach((doc) => {
-        expenses.push({
-          id: doc.id,
-          ...doc.data(),
+        querySnapshot.forEach((doc) => {
+          expenses.push({
+            id: doc.id,
+            ...doc.data(),
+          });
         });
-      });
 
-      dispatch(setExpenses(expenses));
-    });
+        dispatch(setExpenses(expenses));
+      });
   };
 };
