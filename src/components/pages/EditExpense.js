@@ -15,12 +15,12 @@ const EditExpense = (props) => {
 
   const submitExpense = (expense) => {
     dispatch(startEditExpense(editedExpense.id, expense));
-    props.history.push("/");
+    props.history.push("/dashboard");
   };
 
   const deleteExpense = (id) => {
     dispatch(startRemoveExpense(id));
-    props.history.push("/");
+    props.history.push("/dashboard");
   };
 
   return (

@@ -11,7 +11,7 @@ const AddExpense = (props) => {
       <ExpenseForm
         onSubmit={(expense) => {
           dispatch(startAddExpense(expense));
-          props.history.push("/");
+          props.history.push("/dashboard");
         }}
       />
     </div>

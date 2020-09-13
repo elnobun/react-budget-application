@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
-import merge from "validator/es/lib/util/merge";
+import "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -13,8 +13,9 @@ const firebaseConfig = {
   measurementId: process.env.MEASUREMENT_ID,
 };
 // Initialize Firestore
-const db = firebase.initializeApp(firebaseConfig).firestore();
+const initializeApp = firebase.initializeApp(firebaseConfig);
+const firestore = initializeApp.firestore();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-const database = db.collection("expenses");
-
-export default database;
+export const database = firestore.collection("expenses");
+export { firebase, googleAuthProvider };
