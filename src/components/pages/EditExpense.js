@@ -1,7 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ExpenseForm from "../ExpenseForm";
-import { editExpense, startRemoveExpense } from "../../redux/actions/expenses";
+import {
+  startEditExpense,
+  startRemoveExpense,
+} from "../../redux/actions/expenses";
 
 const EditExpense = (props) => {
   const editedExpense = useSelector((state) =>
@@ -11,7 +14,7 @@ const EditExpense = (props) => {
   const dispatch = useDispatch();
 
   const submitExpense = (expense) => {
-    dispatch(editExpense(editedExpense.id, expense));
+    dispatch(startEditExpense(editedExpense.id, expense));
     props.history.push("/");
   };
 
