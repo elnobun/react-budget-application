@@ -1,0 +1,16 @@
+.section-filters__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $m-size;
+
+  @media (min-width: $desktop-breakpoint) {
+    flex-direction: row;
+    margin-bottom: $l-size;
+  }
+}
+.section-filters__group--item {
+  margin-bottom: $s-size;
+  @media (min-width: $desktop-breakpoint) {
+    margin: 0 $s-size 0 0;
+  }
+}

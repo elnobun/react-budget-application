@@ -9,6 +9,7 @@ import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
 import { firebase } from "./firebase/firebase";
 import { login, logout } from "./redux/actions/auth";
+import Loading from "./components/pages/Loading";
 
 // Create application root
 const rootApp = (
@@ -29,7 +30,7 @@ const renderApp = () => {
 };
 
 // Default state on asynchronous request
-ReactDOM.render(<p>Loading...</p>, document.getElementById("root"));
+ReactDOM.render(<Loading />, document.getElementById("root"));
 
 // Firebase authentication user state
 firebase.auth().onAuthStateChanged((user) => {

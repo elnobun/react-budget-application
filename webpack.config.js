@@ -14,7 +14,7 @@ module.exports = (env) => {
   const isProduction = env === "production";
   const CSSExtract = new MiniCssExtractPlugin({ filename: "styles.css" });
   return {
-    entry: "./src/app.js",
+    entry: ["babel-polyfill", "./src/app.js"],
     output: {
       path: path.join(__dirname, "public", "dist"),
       filename: "bundle.js",
@@ -41,7 +41,7 @@ module.exports = (env) => {
             },
             {
               loader: "css-loader",
-              options: { sourceMap: true },
+              options: { sourceMap: true, url: false },
             },
             {
               loader: "sass-loader",
@@ -58,10 +58,16 @@ module.exports = (env) => {
         "process.env.AUTH_DOMAIN": JSON.stringify(process.env.AUTH_DOMAIN),
         "process.env.DATABASE_URL": JSON.stringify(process.env.DATABASE_URL),
         "process.env.PROJECT_ID": JSON.stringify(process.env.PROJECT_ID),
-        "process.env.STORAGE_BUCKET": JSON.stringify(process.env.STORAGE_BUCKET),
-        "process.env.MESSENGER_SENDER_ID": JSON.stringify(process.env.MESSENGER_SENDER_ID),
+        "process.env.STORAGE_BUCKET": JSON.stringify(
+          process.env.STORAGE_BUCKET
+        ),
+        "process.env.MESSENGER_SENDER_ID": JSON.stringify(
+          process.env.MESSENGER_SENDER_ID
+        ),
         "process.env.APP_ID": JSON.stringify(process.env.APP_ID),
-        "process.env.MEASUREMENT_ID": JSON.stringify(process.env.MEASUREMENT_ID),
+        "process.env.MEASUREMENT_ID": JSON.stringify(
+          process.env.MEASUREMENT_ID
+        ),
       }),
     ],
     devtool: isProduction ? "source-map" : "inline-source-map",

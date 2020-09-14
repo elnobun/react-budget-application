@@ -7,7 +7,7 @@ import {
   sortByAmount,
   sortByDate,
 } from "../redux/actions/filters";
-import { DateRangePicker, SingleDatePicker } from "react-dates";
+import { DateRangePicker } from "react-dates";
 import "react-dates/initialize";
 
 const ExpenseListFilters = () => {
@@ -43,35 +43,45 @@ const ExpenseListFilters = () => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Filter Expenses"
-        value={filters.text}
-        onChange={handleInputChange}
-      />
+    <section className="section-filters container">
+      <div className="section-filters__group">
+        <div className="section-filters__group--item">
+          <input
+            type="text"
+            className="text-input"
+            placeholder="Search Expenses"
+            value={filters.text}
+            onChange={handleInputChange}
+          />
+        </div>
 
-      <select value={filters.sortBy} onChange={handleSelectChange}>
-        <option value="" hidden>
-          Sort Expenses
-        </option>
-        <option value="date">Date</option>
-        <option value="amount">Amount</option>
-      </select>
+        <div className="section-filters__group--item">
+          <select
+            className="select"
+            value={filters.sortBy}
+            onChange={handleSelectChange}
+          >
+            <option value="date">Date</option>
+            <option value="amount">Amount</option>
+          </select>
+        </div>
 
-      <DateRangePicker
-        startDate={filters.startDate}
-        startDateId="start"
-        endDate={filters.endDate}
-        endDateId="end"
-        onDatesChange={handleDateChange}
-        focusedInput={calenderFocused}
-        onFocusChange={handleFocusChange}
-        showClearDates={true}
-        numberOfMonths={1}
-        isOutsideRange={() => false}
-      />
-    </div>
+        <div className="section-filters__group--item">
+          <DateRangePicker
+            startDate={filters.startDate}
+            startDateId="start"
+            endDate={filters.endDate}
+            endDateId="end"
+            onDatesChange={handleDateChange}
+            focusedInput={calenderFocused}
+            onFocusChange={handleFocusChange}
+            showClearDates={true}
+            numberOfMonths={1}
+            isOutsideRange={() => false}
+          />
+        </div>
+      </div>
+    </section>
   );
 };
 

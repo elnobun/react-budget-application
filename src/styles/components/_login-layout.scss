@@ -1,0 +1,22 @@
+.login-layout {
+  align-items: center;
+  background: #409EFF;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.login-layout__box {
+  background: white;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+  text-align: center;
+  width: 50rem;
+  padding: $l-size $m-size;
+}
+
+.login-layout__title {
+  margin: 0 0 $m-size 0;
+  line-height: 1;
+}

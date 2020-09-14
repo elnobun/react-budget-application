@@ -58,38 +58,43 @@ const ExpenseForm = (props) => {
   };
 
   return (
-    <div>
-      {error && <p style={{ color: "indianRed" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Description"
-          value={description}
-          onChange={handleChangeDescription}
-          autoFocus
-        />
-        <input
-          type="text"
-          placeholder="Amount"
-          value={amount}
-          onChange={handleAmountChange}
-        />
-        <SingleDatePicker
-          date={createdAt}
-          onDateChange={handleDateChange}
-          focused={calenderFocused}
-          onFocusChange={handleFocusChange}
-          numberOfMonths={1}
-          isOutsideRange={() => false}
-        />
-        <textarea
-          placeholder="Add a note for your expense (optional) "
-          value={note}
-          onChange={handleNoteChange}
-        />
-        <button>{props.expense ? "Edit Expense" : "Add Expense"}</button>
-      </form>
-    </div>
+    <form className="form" onSubmit={handleSubmit}>
+      {error && <p className="form__error">{error}</p>}
+      <input
+        type="text"
+        className="text-input"
+        placeholder="Description"
+        value={description}
+        onChange={handleChangeDescription}
+        autoFocus
+      />
+      <input
+        type="text"
+        className="text-input"
+        placeholder="Amount"
+        value={amount}
+        onChange={handleAmountChange}
+      />
+      <SingleDatePicker
+        date={createdAt}
+        onDateChange={handleDateChange}
+        focused={calenderFocused}
+        onFocusChange={handleFocusChange}
+        numberOfMonths={1}
+        isOutsideRange={() => false}
+      />
+      <textarea
+        className="textarea"
+        placeholder="Add a note for your expense (optional) "
+        value={note}
+        onChange={handleNoteChange}
+      />
+      <div>
+        <button className="button">
+          {props.expense ? "Edit Expense" : "Add Expense"}
+        </button>
+      </div>
+    </form>
   );
 };
 

@@ -24,10 +24,22 @@ const EditExpense = (props) => {
   };
 
   return (
-    <div>
-      <ExpenseForm expense={editedExpense} onSubmit={submitExpense} />
-      <button onClick={() => deleteExpense(editedExpense.id)}>Remove</button>
-    </div>
+    <section>
+      <div className="section-header">
+        <div className="container">
+          <h1 className="section-header__title">Edit Expense</h1>
+        </div>
+      </div>
+      <div className="container">
+        <ExpenseForm expense={editedExpense} onSubmit={submitExpense} />
+        <button
+          className="button button--secondary"
+          onClick={() => deleteExpense(editedExpense.id)}
+        >
+          Remove Expense
+        </button>
+      </div>
+    </section>
   );
 };
 
